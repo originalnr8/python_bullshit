@@ -1,6 +1,6 @@
-costAdult = 4
-costChild = 2
-costOAP = 3
+costAdult = 10.50
+costChild = 7.30
+costOAP = 8.40
 
 def freeTeacher(children):
     if children >9:
