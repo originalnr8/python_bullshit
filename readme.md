@@ -1,15 +1,15 @@
 # Week 4
 ## Tutorial 1
-### Task 2 - Odd or Even
-### Task 3 - NUmbers in a Series
-### Task 4 - Nothing for a pair
+### Task 2 - Odd or Even (odd_or_even)
+### Task 3 - Numbers in a Series (series)
+### Task 4 - Nothing for a pair (high_low)
 ## Tutorial 2
-### Task 1 - Understanding Conditions
-### Task 2 - Nursery Rhymes
-### Task 3 - A Night at the Theatre
+### Task 1 - Understanding Conditions (password)
+### Task 2 - Nursery Rhymes (magpie)
+### Task 3 - A Night at the Theatre (theatre)
 # Week 5
 ## Tutorial 1
-### Task 1 - Thunderbirds Are Go
-### Task 2 - Restaurant
-### Task 3 - A Simple Calculator
-### Task 4 - Character Generator
+### Task 1 - Thunderbirds Are Go (thunderbird)
+### Task 2 - Restaurant (restaurant)
+### Task 3 - A Simple Calculator (simple_calc)
+### Task 4 - Character Generator (character_gen)
