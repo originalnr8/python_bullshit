@@ -15,6 +15,8 @@ attrThief = [10,9,0,15,0]
 attrNecromancer = [10,10,15,0,0]
 
 def ChooseYourHero():
+    # Didn't like having all this crowding up the file
+    # Simple choice input system
     print("Choose your hero's Class:")
     print("1 - Warrior")
     print("2 - Wizard")
@@ -30,33 +32,37 @@ def ChooseYourHero():
     return choice
 
 def validateStat(attrPer, attrClass, index):
+    # Compare the rolled stat against the minimum allowed stat
     if attrPer[index -1] >= attrClass[index -1]:
         return True
     else:
         return False
 
 def validateCharacter(attrPersonal, attrClass):
+    # Check every stat
     for i in range(5):
         if validateStat(attrPersonal, attrClass, i) == False:
             return False
     return True
 
 def validateClass(attrRolled, attrClass):
+    # This started bigger and shrunk. Just left to show the process of refinement
     return validateCharacter(attrRolled, attrClass)
 
 def findTradable(attr, attrClass):
-    trade = []
-    for i in range(5):
+    trade = []  # create a blank array
+    for i in range(5):  # for every stat
         minimum = 0
-        if attrClass[i] == 0:
-            minimum = 3
+        if attrClass[i] == 0:   # set lower limit as the allowed attribute minimum or the rule minimum
+            minimum = attr_min
         else:
             minimum = attrClass[i]
-        if attr[i] > minimum:
-            excess = attr[i] - minimum
-            exchanged = excess / traderatio
-            tradepoints = int(exchanged)
-            if excess > traderatio:
+
+        if attr[i] > minimum:   # if we have extra lets see how much
+            excess = attr[i] - minimum      # full amount extra
+            exchanged = excess / traderatio # exchanged amount as decimal
+            tradepoints = int(exchanged)    # exchanged amount as integer
+            if excess > traderatio:         # check there is enough excess to trade
                 trade.append( tradepoints )
             else:
                 trade.append(0)
@@ -65,12 +71,14 @@ def findTradable(attr, attrClass):
     return trade
 
 def checkTrade(trade):
+    # do we have anything to trade
     sum = 0
     for x in trade:
         sum += x
     return sum
 
 def showTradable(trade):
+    # just print stuff
     print("")
     for x in range(5):
         if trade[x] > 0:
@@ -87,6 +95,7 @@ def showTradable(trade):
                 print("5 - Constitution\t\t {0}pts".format(spare))
 
 def choiceToClass(number):
+    # exchange of the input number to class word
     if number == 1:
         return "Warrior"
     elif number == 2:
@@ -97,6 +106,7 @@ def choiceToClass(number):
         return "Necromancer"
 
 def columnToStat(number):
+    # exchange of array index to Stat name
     if number == 0:
         return "Strength"
     elif number == 1:
@@ -109,12 +119,15 @@ def columnToStat(number):
         return "Constitution"
 
 def showAssignable(attr, attrClass):
+    # print stuff
     print("")
     for i in range(5):
         if attr[i] < attrClass[i]:
             print("{0} - {1}".format(i+1, columnToStat(i)))
 
 def ChooseAttrMinimum(number):
+    # returns the minimum stat array for the class linked to the choice
+    # Making comparisons less problematic as the comparisons do not need to be sorted each time to the right class as its this
     if number == 1:
         return attrWarrior
     elif number == 2:
@@ -125,17 +138,18 @@ def ChooseAttrMinimum(number):
         return attrNecromancer
 
 def tradeStat(sac, ass, attr, attrClass):
-    valid = validateStat(attr, attrClass, ass)
-    while valid == False:
-        if attr[sac -1] - traderatio >= attr_min:
-            attr[sac -1] -= traderatio
+    valid = validateStat(attr, attrClass, ass)  # check stat is invalid
+    while valid == False:                       # keep on trading
+        if attr[sac -1] - traderatio >= attr_min:   # if we can trade and not go below the minimum TRADE
+            attr[sac -1] -= traderatio              
             attr[ass -1] += 1
-        else:
+        else:                                       # if not we need a new attribute to trade
             return attr
-        valid = validateStat(attr, attrClass, ass)
+        valid = validateStat(attr, attrClass, ass)  # done a trade so lets check if stat is valid
     return attr
 
 def showCharacter(choice, attr):
+    # print stuff
     print("")
     print(choiceToClass(choice))
     for x in range(5):
@@ -143,6 +157,7 @@ def showCharacter(choice, attr):
     print("")
 
 def showMinimum(attr):
+    # print stuff
     for x in range(5):
         print("[{0}]:\t[{1}]".format(columnToStat(x), attr[x]), end = '\t')
     print("")
@@ -168,8 +183,8 @@ attributes = [random.randint(3,18), random.randint(3,18), random.randint(3,18), 
 validClass = validateClass(attributes, choosenAttr)
 while validClass == False:
 ## Compare the character array to the minimum array to check validity (if valid Output everything and leave)
-    showCharacter(chosenClass, attributes)
-    showMinimum(choosenAttr)
+    #showCharacter(chosenClass, attributes)
+    #showMinimum(choosenAttr)
     attrTradable = findTradable(attributes, choosenAttr)
     if checkTrade(attrTradable) > 0:
 ### List the sacrificible columns
