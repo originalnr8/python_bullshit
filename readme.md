@@ -34,3 +34,30 @@
 ### Task 1 - Reversal (reverse)
 ### Task 2 - Colourful (rainbow)
 ### Task 3 - A blast from the past (pairs)
+
+# Week 10
+## Tutorial 1
+### Task 1 - Character Print (character_print)
+### Task 2 - Functional Calculator (fun_calc
+### Task 3 - Swap (swap)
+### Task 4 - You sank my battleship (destroyer)
+## Tutorial 2
+### Task 1 - Alphabetical (alphabetical)
+### Task 2 - Shopping List (shop_list)
+### Task 3 - Tally Ho (tally_chart)
+### Task 4 - Insertion sort (insertion_sort)
+
+# Week 11
+## Tutorial 1
+### Task 1 - Band Practice (the_band)
+### Task 2 - Family (the_band?)
+### Task 3 - Game Chart (game_chart)
+## Tutorial 2
+### Task 1 - Initials (initials)
+### Task 2 - Hangman (hangman)
+### Task 3 - Multiple Initials (multi_init)
+
+# Week 12
+## Tutorial 1
+### Task 1 - Rate a Restaurant (restaurant_rating)
+### Task 2 - Secure Entry (security_checker)
