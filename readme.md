@@ -25,7 +25,6 @@
 # Week 8
 ## Tutorial 1
 ### Task 1 - Match the Dice (dice_match)
-### Task 2 - Determined Loops (loop_types)
 ### Task 3 - Reversing an Integer (reversal)
 ### Task 4 - Child's Play (paper_rock_scissors)
 
