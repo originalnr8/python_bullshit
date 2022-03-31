@@ -3,7 +3,7 @@ from xml.dom import ValidationErr
 
 cards_available = [2,3,4,5,6,7,8,9,10,11,12,13,1]
 card_count = 4      # How many different cards
-columns = 4         # X grid dimension
+columns = 10         # X grid dimension
 rows = 4            # Y grid dimension
 card_facedown = "[ ]"
 card_found = "[X]"
@@ -59,9 +59,9 @@ def card2num(card):
 # Populate 4x4 array with 4 cards (Jack, Queen King Ace) randomly placed
 def genGrid(thing):
     grid = []
-    for y in range(rows):
+    for x in range(columns):
         line = []
-        for x in range(columns):
+        for y in range(rows):
             line.append(thing)
         grid.append(line)
     return grid
@@ -106,27 +106,29 @@ def popGrid():
 def mergeGridtoGame(grid):
     # Setup the headers to the deck
     headers_columns =[]
-    headers_columns.append(" ")
+    #headers_columns.append(" ")
     for x in range(columns):
         headers_columns.append(str(x))
 
     headers_rows =[]
+    headers_rows.append(" ")
     for y in range(rows):
         headers_rows.append(str(y))
-    
+
     # Setup the top header
     game = []
     line = []
-    for y in range(len(headers_columns)):
-        line.append(headers_columns[y])
-    game.append(line)
+    #for y in range(len(headers_rows)):
+    #    line.append(headers_rows[y])
+    #game.append(line)
+    game.append(headers_rows)
 
     # Setup the rest
-    for x in range(len(headers_rows)):
+    for x in range(len(headers_columns)):
         line = []
-        for y in range(len(headers_columns)):
+        for y in range(len(headers_rows)):
             if y == 0:
-                line.append(headers_rows[x])
+                line.append(headers_columns[x])
             else:
                 line.append(grid[x][y -1])
         game.append(line)
@@ -135,8 +137,8 @@ def mergeGridtoGame(grid):
 
 def displayGameGrid(game):
     padding = "\t"
-    for y in range(columns +1):
-        for x in range(rows +1):
+    for y in range(rows +1):
+        for x in range(columns +1):
             print(num2card(game[x][y]), end = padding)
         print("")
     print("############################")
