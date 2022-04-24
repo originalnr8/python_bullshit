@@ -1,3 +1,5 @@
+lower = 10
+upper = 10000000000
 attempt = 0
 while attempt >= 0:
     # prompt for an integer >1 and <11 or 10-9,999,999,999
@@ -8,7 +10,7 @@ while attempt >= 0:
     # moan if that doesn't happen
     if attempt <0:
         exit()
-    elif attempt < 10 or attempt > 10000000:
+    elif attempt < lower or attempt > upper:
         print("Did you read the instructions?")
 
     # output the reverse of that number
